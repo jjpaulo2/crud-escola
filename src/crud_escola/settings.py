@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     
     'import_export',
 
-    'alunos'
+    'pessoas',
+    'turmas'
 ]
 
 MIDDLEWARE = [

@@ -3,7 +3,7 @@ from django.utils.timezone import now
 from django.db import models
 
 
-class ModeloGenerico(models.Model):
+class PessoaGenerica(models.Model):
     GENEROS_POSSIVEIS = [
         (1, "Masculino"),
         (2, "Feminino"),
@@ -39,22 +39,15 @@ class ModeloGenerico(models.Model):
         null=True,
         blank=True
     )
-
-    class Meta:
-        abstract = True
-
-
-class Aluno(ModeloGenerico):
     observacao = models.TextField(
         verbose_name='observação',
         null=True,
         blank=True
     )
-    matriculado = models.BooleanField(
-        help_text='a matricula do aluno está ativa?',
-        default=False
-    )
-    
-    def __str__(self):
-        return f'Aluno #{self.pk} - {self.nome}'
-    
+
+    @property
+    def nome_completo(self) -> str:
+        return f'{self.nome} {self.sobrenome}'
+
+    class Meta:
+        abstract = True

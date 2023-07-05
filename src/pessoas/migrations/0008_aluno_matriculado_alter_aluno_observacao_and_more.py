@@ -7,7 +7,7 @@ import uuid
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('alunos', '0007_aluno_observacao_alter_aluno_uuid'),
+        ('pessoas', '0007_aluno_observacao_alter_aluno_uuid'),
     ]
 
     operations = [
